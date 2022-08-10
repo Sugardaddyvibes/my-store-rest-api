@@ -29,14 +29,15 @@ api.add_resource(Store,'/store/<string:name>')
 api.add_resource(StoreList,'/stores')
 if __name__=='__main__':
     from db import db
-    db.init_app(app) 
+    
     
     
 
     
     
     if app.config['DEBUG']: 
-        @app.before_first_request 
+        @app.before_first_request
+        db.init_app(app)
         def create_tables():
             db.create_all() 
  
