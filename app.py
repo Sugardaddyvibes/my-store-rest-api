@@ -15,8 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 app.secret_key='jose'  
 api = Api(app)
 jwt= JWT(app,aunthentication,identity)  
-sqlalchemy = SQLAlchemy()
-sqlalchemy.init_app(app)
+
 
 
 
