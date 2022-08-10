@@ -31,10 +31,12 @@ api.add_resource(ItemList,'/items')
 api.add_resource(user_register,'/register')
 api.add_resource(Store,'/store/<string:name>')
 api.add_resource(StoreList,'/stores')
- if app.config['DEBUG']:
-       @app.before_first_reques
-         def create_tables():
-            db.create_all()
+ @app.before_first_request
+   def create_tables():
+      db.create_all()
+         
+            
+       
       
     
       
@@ -45,7 +47,7 @@ api.add_resource(StoreList,'/stores')
 
 
 if __name__=='__main__':
-   app.run(port=5000) 
+   app.run(port=5000,debug=True) 
    
     
       
