@@ -31,9 +31,9 @@ api.add_resource(ItemList,'/items')
 api.add_resource(user_register,'/register')
 api.add_resource(Store,'/store/<string:name>')
 api.add_resource(StoreList,'/stores')
- @app.before_first_request
-   def create_tables():
-      db.create_all()
+@app.before_first_request
+def create_tables():
+   db.create_all()
          
             
        
