@@ -6,6 +6,9 @@ from security import aunthentication,identity
 from resources.user import user_register
 from resources.items import Item,ItemList
 from resources.store import Store,StoreList
+from db import db
+db.init_app(app)    
+
 
 
 app = Flask(__name__)
@@ -26,8 +29,7 @@ api.add_resource(user_register,'/register')
 api.add_resource(Store,'/store/<string:name>')
 api.add_resource(StoreList,'/stores')
 if __name__=='__main__':
-    from db import db
-    db.init_app(app)
+    
     
     
     if app.config['DEBUG']: 
