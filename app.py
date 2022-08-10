@@ -6,6 +6,9 @@ from security import aunthentication,identity
 from resources.user import user_register
 from resources.items import Item,ItemList
 from resources.store import Store,StoreList
+from db import db
+   
+
    
 
 
@@ -16,7 +19,8 @@ app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 app.secret_key='jose'  
 api = Api(app)
-jwt= JWT(app,aunthentication,identity)  
+jwt= JWT(app,aunthentication,identity) 
+db.init_app(app) 
 
 
 
@@ -28,8 +32,7 @@ api.add_resource(user_register,'/register')
 api.add_resource(Store,'/store/<string:name>')
 api.add_resource(StoreList,'/stores')
 if __name__=='__main__':
-    from db import db
-    db.init_app(app)  
+      
     
     
     
