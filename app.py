@@ -16,7 +16,7 @@ from db import db
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI']= os.environ.get('DATABASE_URL','sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI']= os.environ.get('DATABASE_URLL','sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 app.secret_key='jose'  
 api = Api(app)
