@@ -1,3 +1,4 @@
+import os
 import sqlite3
 from flask import Flask,request
 from flask_restful import Resource,Api,reqparse
@@ -15,7 +16,7 @@ from db import db
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI']= os.enivron.get('DATABASE_URL','sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 app.secret_key='jose'  
 api = Api(app)
